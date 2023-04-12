@@ -1,5 +1,6 @@
 ;x86 32-bit egghunter
 ;searches for a string in memory and writes it to stdout
+;based on: https://medium.com/@chaudharyaditya/slae-0x3-egg-hunter-shellcode-6fe367be2776
 
 ;assembling the shellcode and dumping it in packed format
 ;nasm -f elf32 -o egghunter.o egghunter.S
