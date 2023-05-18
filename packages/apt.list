@@ -28,7 +28,7 @@ wireguard
 resolvconf
 less
 musl
-awk
+gawk
 nmap
 openvpn
 patchelf
