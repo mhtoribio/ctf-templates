@@ -14,7 +14,6 @@ dirb
 seclists
 g++
 gcc
-libgcc
 gdb
 gdbserver
 gdb-multiarch
