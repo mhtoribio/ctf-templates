@@ -1,3 +1,4 @@
 pwntools
 pwninit
 git+https://github.com/Myldero/kernelinit
+ipython
