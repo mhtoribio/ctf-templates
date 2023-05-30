@@ -27,6 +27,8 @@ wireguard
 resolvconf
 less
 musl
+musl-tools
+musl-dev
 gawk
 nmap
 openvpn
