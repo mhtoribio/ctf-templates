@@ -10,15 +10,18 @@ context.terminal = ['tmux', 'neww']
 def conn():
     if args.LOCAL:
         r = process({proc_args})
-        if args.DEBUG:
-            gdb.attach(r)
     else:
         r = remote("addr", 1337)
 
     return r
 
+gdbscript = """
+"""
 r = conn()
+if args.LOCAL:
+    gdb.attach(r, gdbscript=gdbscript)
 
 # good luck pwning :)
+
 
 r.interactive()
