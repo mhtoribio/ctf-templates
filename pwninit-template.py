@@ -21,8 +21,8 @@ io = conn()
 if args.GDB:
     gdb.attach(io, gdbscript=gdbscript)
 
-def dbg(fmt, var):
-    info(fmt.format(hex(var)))
+def dbg(name, var):
+    info(f"{name} = {hex(var)}")
 
 # good luck pwning :)
 
